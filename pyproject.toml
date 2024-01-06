@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "trogon-todo-list"
+version = "0.1.0"
+description = "A todo command line to highlight Trogon use case"
+authors = ["le_woudar <rollandkev@yahoo.fr>"]
+readme = "README.md"
+keywords = ["click", "trogon", "tui", "todo"]
+packages = [
+    {include = "trogon_todo"}
+]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+click = "^8.1.7"
+trogon = "^0.5.0"
+platformdirs = "^4.1.0"
+msgspec = "^0.18.5"
+rich = "^13.7.0"
+click-didyoumean = "^0.3.0"
+shellingham = "^1.5.4"
+
+[tool.poetry.scripts]
+todo = "trogon_todo.main:cli"
+
+
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.1.9"
+bandit = "^1.7.6"
+
+[tool.ruff]
+line-length = 120
+target-version = "py38"
+
+[tool.ruff.lint]
+extend-select = [
+  "UP",  # pyupgrade
+  "I",   # isort
+  "S",   # flake8-bandit
+  "B",   # flake8-bugbear
+  "C90", # McCabe complexity
+  "RUF"
+]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
