@@ -59,15 +59,18 @@ Usage: todo [OPTIONS] COMMAND [ARGS]...
   $ todo clear-db
 
 Options:
-  --help  Show this message and exit.
+  --version   Show the version and exit.
+  -h, --help  Show this message and exit.
 
 Commands:
-  clear-db  Clear the database.
-  create    Creates a todo.
-  delete    Delete todos given their IDs.
-  get       Gets todo information by its id.
-  list      List todos.
-  update    Updates a todo.
+  clear-db            Clear the database.
+  create              Creates a todo.
+  delete              Delete todos given their IDs.
+  get                 Gets todo information by its id.
+  install-completion  Install completion script for bash, zsh and fish...
+  list                List todos.
+  tui                 Open Textual TUI.
+  update              Updates a todo.
 ```
 
 And if it is still not clear, you can use this command to guide you.
@@ -75,3 +78,9 @@ And if it is still not clear, you can use this command to guide you.
 ```shell
 $ todo tui
 ```
+
+## Warning
+
+Trogon uses the [shlex](https://docs.python.org/3/library/shlex.html) module to parse the command line arguments. It
+does not work well on Windows (at the moment of writing).
+So don't be surprised to encounter errors in certain situations.
